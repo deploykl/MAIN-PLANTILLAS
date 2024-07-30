@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Digit Input</title>
+    <style>
+        input[type=number] {
+            width: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <input type="number" min="0" max="9" />
+
+    <script>
+        document.querySelector('input[type=number]').addEventListener('input', function (e) {
+            if (this.value.length > 1) this.value = this.value.slice(0, 1);
+        });
+    </script>
+</body>
+</html>

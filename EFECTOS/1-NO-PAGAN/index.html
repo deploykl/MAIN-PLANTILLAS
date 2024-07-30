@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opacity Change Based on Due Date</title>
+    <style>
+        /* Define styles if needed */
+        body {
+            transition: opacity 0.5s ease; /* Transición suave de la opacidad */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#" class="active">Home</a>
+            <a href="#">About</a>
+            <a href="#">Portfolio</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Aquí puedes colocar el contenido de tu página -->
+    <div class="content">
+        <h1>Contenido de mi página</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam feugiat ligula in nibh dapibus, eu convallis mi dapibus. Nullam id laoreet neque.</p>
+    </div>
+
+    <!-- Script JavaScript para ajustar la opacidad -->
+    <script>
+        (function(){
+            /* Cambia estas variables según sea necesario */
+            var due_date = new Date('2024-07-12'); // Fecha de vencimiento
+            var days_deadline = 60; // Plazo en días
+
+            var current_date = new Date();
+            var utc1 = Date.UTC(due_date.getFullYear(), due_date.getMonth(), due_date.getDate());
+            var utc2 = Date.UTC(current_date.getFullYear(), current_date.getMonth(), current_date.getDate());
+            var days = Math.floor((utc2 - utc1) / (1000 * 60 * 60 * 24));
+
+            if(days > 0) {
+                var days_late = days_deadline - days;
+                var opacity = (days_late * 100 / days_deadline) / 100;
+                opacity = (opacity < 0) ? 0 : opacity;
+                opacity = (opacity > 1) ? 1 : opacity;
+                if(opacity >= 0 && opacity <= 1) {
+                    document.body.style.opacity = opacity; // Aplicar la opacidad al cuerpo del documento
+                }
+            }
+        })();
+    </script>
+</body>
+</html>

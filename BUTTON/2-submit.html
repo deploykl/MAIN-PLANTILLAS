@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Button with Animation</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <style>
+        * {
+            transition: all .15s;
+            outline: none;
+            overflow: hidden;
+        }
+        
+        button {
+            font-size: 19px;
+            font-family: 'Pacifico';
+            overflow: visible;
+            border-radius: 3px;
+            position: relative;
+            padding-right: 30px;
+            background-color: #ECFBFF;
+            border: 2px solid #A6E0EE;
+            color: #2D7586;
+            display: block;
+            margin: 13% auto;
+            height: 60px;
+            width: 200px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #DDF7FF;
+        }
+        
+        button svg {
+            position: absolute;
+            top: 13px;
+            right: 25px;
+            height: 30px;
+            width: auto;
+            transition: transform .15s;
+        }
+        
+        button svg path {
+            fill: #2D7586;
+        }
+
+        button.clicked {
+            background-color: #cff5b3;
+            border: 2px solid #cff5b3;
+            color: #6AAA3B;
+            padding-right: 6px;
+            animation: bounce-in .3s;
+            cursor: default;
+        }
+
+        button.clicked svg {
+            animation: flyaway 1.3s linear;
+        }
+        
+        button.clicked svg path {
+            fill: #6AAA3B;
+        }
+
+        @keyframes flyaway {
+            0%   { transform: rotate(10deg);
+                    top: 13px;
+                    right: 25px;
+                    height: 30px; }
+            5%   { transform: rotate(10deg);
+                    top: 13px;
+                    right: 0px;
+                    height: 30px; }
+            20%   { transform: rotate(-20deg);
+                    top: 13px;
+                    right: -130px;
+                    height: 45px; }  
+            40%   { transform: rotate(10deg);
+                    top: -40px;
+                    right: -280px;
+                    opacity: 1; }
+            100% { transform: rotate(60deg);
+                    top: -200px;
+                    right: -1000px;
+                    height: 0;
+                    opacity: 0; }
+        }
+        
+        @keyframes bounce-in {
+            0% { padding-right: 30px; }
+            40% { padding-right: 6px; }
+            50% { padding-left: 30px; }
+            100% { padding-left: 6px; }
+        }
+    </style>
+</head>
+<body>
+    <button>
+        <p>Send</p>
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+            <path id="paper-plane-icon" d="M462,54.955L355.371,437.187l-135.92-128.842L353.388,167l-179.53,124.074L50,260.973L462,54.955z
+            M202.992,332.528v124.517l58.738-67.927L202.992,332.528z"></path> 
+        </svg>
+    </button>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $('button').click(function() {
+            $(this).toggleClass('clicked');
+            $('button p').text(function(i, text) {
+                return text === "Sent!" ? "Send" : "Sent!";
+            });
+        });
+    </script>
+</body>
+</html>

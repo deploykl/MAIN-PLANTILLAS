@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQUERY ALERT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="jquery-confirm.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="jquery-confirm.min.js"></script>
+    <style>
+        .centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Esto centra verticalmente en toda la pantalla */
+        }
+    </style>
+</head>
+<body>
+    <div class="centered">
+        <button class="btn btn-primary dialog-success">Registrar Éxito</button>
+        <button class="btn btn-danger dialog-error ml-2">Registrar Error</button>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('.dialog-success').click(function() {
+                $.alert({
+                    icon: 'fa fa-check',
+                    title: '¡Registro Exitoso!',
+                    content: 'Tu registro ha sido completado.',
+                    autoClose: 'ok|1000', // Cerrar automáticamente después de 1.5 segundos
+                    type: 'green',
+                    typeAnimated: true,
+                    dragWindowBorder: true,
+                    dragWindowGap: 0, // Distancia en píxeles
+                    columnClass: 'small'
+                });
+            });
+            $('.dialog-error').click(function() {
+                $.alert({
+                    icon: 'fa fa-exclamation-triangle',
+                    title: '¡Error!',
+                    content: 'Ha ocurrido un error al intentar registrar.',
+                    autoClose: 'ok|1000', // Cerrar automáticamente después de 1.5 segundos
+                    type: 'red',
+                    typeAnimated: true,
+                    dragWindowBorder: true,
+                    dragWindowGap: 0, // Distancia en píxeles
+                    columnClass: 'small'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DATE TABLE</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="./bootstrap-v5.3.0/bootstrap.min.css">
+    <link rel="stylesheet" href="./full.datatables.css">
+    <link rel="stylesheet" href="lib/responsive-v3.0.2/responsive.dataTables.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <script src="./js/jquery.min.v4.js"></script>
+    <script src="./full.datatables.min.js"></script>
+    <script src="./bootstrap-v5.3.0/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1>Ejemplo de DataTable responsivo con botones de exportación</h1>
+        <table id="example" class="display nowrap table" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Posición</th>
+                    <th>Oficina</th>
+                    <th>Edad</th>
+                    <th>Fecha de inicio</th>
+                    <th>Sueldo</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jane Doe</td>
+                    <td>Software Engineer</td>
+                    <td>San Francisco</td>
+                    <td>35</td>
+                    <td>2019/03/14</td>
+                    <td>$150,000</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>John Smith</td>
+                    <td>Data Scientist</td>
+                    <td>New York</td>
+                    <td>28</td>
+                    <td>2020/05/20</td>
+                    <td>$120,000</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Emma Johnson</td>
+                    <td>Product Manager</td>
+                    <td>Los Angeles</td>
+                    <td>40</td>
+                    <td>2018/11/02</td>
+                    <td>$140,000</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Michael Brown</td>
+                    <td>UX Designer</td>
+                    <td>Chicago</td>
+                    <td>30</td>
+                    <td>2017/08/15</td>
+                    <td>$130,000</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Linda Davis</td>
+                    <td>HR Specialist</td>
+                    <td>Miami</td>
+                    <td>45</td>
+                    <td>2016/06/12</td>
+                    <td>$110,000</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>William Wilson</td>
+                    <td>Marketing Manager</td>
+                    <td>Seattle</td>
+                    <td>38</td>
+                    <td>2015/04/25</td>
+                    <td>$125,000</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Susan Clark</td>
+                    <td>Finance Analyst</td>
+                    <td>Boston</td>
+                    <td>32</td>
+                    <td>2014/10/30</td>
+                    <td>$115,000</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Robert Lewis</td>
+                    <td>Operations Manager</td>
+                    <td>Denver</td>
+                    <td>50</td>
+                    <td>2013/12/11</td>
+                    <td>$135,000</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Patricia Walker</td>
+                    <td>Quality Assurance</td>
+                    <td>Austin</td>
+                    <td>27</td>
+                    <td>2021/07/22</td>
+                    <td>$105,000</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>James Hall</td>
+                    <td>Network Engineer</td>
+                    <td>Houston</td>
+                    <td>36</td>
+                    <td>2012/09/09</td>
+                    <td>$145,000</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mary Martinez</td>
+                    <td>Legal Advisor</td>
+                    <td>Phoenix</td>
+                    <td>48</td>
+                    <td>2011/01/19</td>
+                    <td>$155,000</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Christopher White</td>
+                    <td>IT Support</td>
+                    <td>Philadelphia</td>
+                    <td>29</td>
+                    <td>2022/04/28</td>
+                    <td>$95,000</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sarah Harris</td>
+                    <td>Database Administrator</td>
+                    <td>Dallas</td>
+                    <td>41</td>
+                    <td>2010/03/03</td>
+                    <td>$160,000</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Daniel King</td>
+                    <td>Chief Technology Officer</td>
+                    <td>San Diego</td>
+                    <td>52</td>
+                    <td>2009/12/25</td>
+                    <td>$200,000</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+                <!-- Agrega más filas según sea necesario -->
+            </tbody>
+
+        </table>
+    </div>
+    <script>
+        $(document).ready(function () {
+            var table = $('#example').DataTable({
+                language: {
+                    url: './js/spanish.json'
+                },
+                responsive: true,
+                autoWidth: true,
+                destroy: true,
+                deferRender: true,
+                dom: 'Blfrtip', // Incluye 'l' para lengthMenu
+                lengthMenu: [[10, 25, 50, 250, 500 - 1], [10, 25, 50, 250, 500, "Todos"]],
+                buttons: [
+                    {
+                        extend: 'excel',
+                        text: '<i class="fas fa-file-excel"></i> Excel',
+                        className: 'btn btn-success'
+                    },
+                    {
+                        extend: 'csv',
+                        text: '<i class="fas fa-file-csv"></i> CSV',
+                        className: 'btn btn-dark'
+                    },
+                    {
+                        extend: 'pdf',
+                        text: '<i class="fas fa-file-pdf"></i> PDF',
+                        className: 'btn btn-danger'
+                    },
+                    {
+                        extend: 'print',
+                        text: '<i class="fas fa-print"></i> Imprimir',
+                        className: 'btn btn-primary'
+                    },
+                    {
+                        extend: 'copy',
+                        text: '<i class="fas fa-copy"></i> Copiar',
+                        className: 'btn btn-warning'
+                    }
+                ]
+            });
+        });
+    </script>
+</body>
+
+</html>

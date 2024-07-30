@@ -1,0 +1,40 @@
+:root {  
+     --fondo-main: #34495e; 
+}
+table.dataTable thead>tr>th.dt-orderable-asc,table.dataTable thead>tr>th.dt-orderable-desc,table.dataTable thead>tr>td.dt-orderable-asc,table.dataTable thead>tr>td.dt-orderable-desc {
+    background-color: var(--fondo-main);
+    color: #ffffff; /* Color del texto */
+    font-weight: bold; /* Texto en negrita */
+    padding: 12px; /* Espaciado interno */
+    cursor: pointer; /* Cursor al pasar */
+    border-bottom: 2px solid #2c3e50; /* Borde inferior */
+    transition: background-color 0.3s ease, color 0.3s ease ; /* Transiciones suaves */
+    text-align: center;
+}
+/* de boostrap modificando   */
+.active>.page-link, .page-link.active{
+    background-color: var(--fondo-main) !important;
+}
+.pagination{
+    cursor : pointer !important;
+}
+/* Estilos para el contenedor principal del DataTable */
+div.dt-container {
+    display: flex; /* Utiliza flexbox para alinear elementos */
+    justify-content: space-between; /* Espacio uniforme entre los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en filas adicionales si es necesario */
+    margin-bottom: 10px; /* Espacio inferior entre el DataTable y otros elementos */
+}
+th{
+    border: 1px solid rgb(97, 119, 122) !important;
+}
+@media screen and (max-width: 790px) {
+    div.dt-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+}

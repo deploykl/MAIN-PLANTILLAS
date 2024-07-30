@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar con Submenú e Íconos</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #sidebar {
+            height: 100vh;
+            background: #343a40;
+            color: #fff;
+            padding: 1rem;
+        }
+        .nav-link {
+            color: #fff;
+            position: relative;
+        }
+        .nav-link:hover {
+            background: #495057;
+        }
+        .submenu {
+            padding-left: 1rem;
+        }
+        .nav-link i {
+            margin-right: 0.5rem;
+        }
+        .nav-link .fa-chevron-down {
+            float: right;
+            transition: transform 0.3s;
+        }
+        .nav-link.collapsed .fa-chevron-down {
+            transform: rotate(-90deg);
+        }
+        .submenu .nav-link {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .submenu .nav-link::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            border-left: 1px dotted rgb(252, 237, 237);
+            display: none;
+        }
+        .nav-item.show .submenu .nav-link::before {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar" class="bg-dark">
+        <h4 class="text-center">Menú</h4>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-home"></i>Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#submenuProductos" data-toggle="collapse" aria-expanded="false"><i class="fas fa-box"></i>Productos <i class="fas fa-chevron-down"></i></a>
+                <div id="submenuProductos" class="collapse submenu">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-box-open"></i>Producto 1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-box-open"></i>Producto 2</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#submenuCategorias" data-toggle="collapse" aria-expanded="false"><i class="fas fa-tags"></i>Categorías <i class="fas fa-chevron-down"></i></a>
+                <div id="submenuCategorias" class="collapse submenu">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-tag"></i>Categoría 1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-tag"></i>Categoría 2</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-users"></i>Usuarios</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-cogs"></i>Configuraciones</a>
+            </li>
+        </ul>
+    </div>
+    <div class="content flex-fill">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="btn btn-outline-secondary" type="button" id="sidebarToggle">Toggle Sidebar</button>
+        </nav>
+        <div class="container">
+            <!-- Contenido principal aquí -->
+            <h1>Bienvenido</h1>
+            <p>Este es el contenido principal de la página.</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('sidebarToggle').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('d-none');
+        });
+        $('#submenuProductos').on('show.bs.collapse', function () {
+            $(this).parent().addClass('show');
+        });
+        $('#submenuProductos').on('hide.bs.collapse', function () {
+            $(this).parent().removeClass('show');
+        });
+        $('#submenuCategorias').on('show.bs.collapse', function () {
+            $(this).parent().addClass('show');
+        });
+        $('#submenuCategorias').on('hide.bs.collapse', function () {
+            $(this).parent().removeClass('show');
+        });
+    </script>
+    </script>
+</body>
+</html>

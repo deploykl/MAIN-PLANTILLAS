@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Circular con Iconos</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #161a23;
+        }
+
+        .menu {
+            position: relative;
+            width: 170px;
+            height: 170px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu .navigation {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        .menu .navigation span {
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            transform: translate(calc(14px * var(--x)), calc(14px * var(--y)));
+            transition: transform 0.5s, width 0.5s, height 0.5s;
+            transition-delay: calc(0.1s * var(--i));
+            border-radius: 50%;
+        }
+
+        .menu .navigation span ion-icon {
+            color: #fff;
+            font-size: 0.25rem;
+            transition: 0.5s;
+        }
+
+        .menu .navigation.active span ion-icon {
+            font-size: 1.75rem;
+            transition: 0.5s;
+        }
+
+        .menu .navigation.active span:hover ion-icon {
+            color: #2dfc52;
+            filter: drop-shadow(0 0 3px #2dfc52) drop-shadow(0 0 6px #2dfc52) drop-shadow(0 0 12px #2dfc52);
+        }
+
+        .menu .navigation.active span {
+            width: 45px;
+            height: 45px;
+            background: #1f2536;
+            transform: translate(calc(60px * var(--x)), calc(60px * var(--y)));
+        }
+
+        .menu .close {
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+
+        .menu .navigation.active ~ .close {
+            width: 40px;
+            height: 40px;
+            pointer-events: initial;
+            transition-delay: 0.8s;
+            background: #2dfc52;
+            color: #fff;
+        }
+
+        .menu .navigation ~ .close ion-icon {
+            color: #10131c;
+            font-size: 2.5rem;
+            scale: 0;
+            transition: 1s;
+        }
+
+        .menu .navigation.active ~ .close ion-icon {
+            scale: 1;
+            transition-delay: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <div class="navigation">
+                <span style="--i:0; --x:-1; --y:0">
+                    <ion-icon name="videocam-outline"></ion-icon>
+                </span>
+                <span style="--i:1; --x:1; --y:0">
+                    <ion-icon name="flame-outline"></ion-icon>
+                </span>
+                <span style="--i:2; --x:0; --y:-1">
+                    <ion-icon name="bulb-outline"></ion-icon>
+                </span>
+                <span style="--i:3; --x:0; --y:1">
+                    <ion-icon name="build-outline"></ion-icon>
+                </span>
+                <span style="--i:4; --x:-1; --y:1">
+                    <ion-icon name="thermometer-outline"></ion-icon>
+                </span>
+                <span style="--i:5; --x:-1; --y:-1">
+                    <ion-icon name="water-outline"></ion-icon>
+                </span>
+                <span style="--i:6; --x:1; --y:-1">
+                    <ion-icon name="alarm-outline"></ion-icon>
+                </span>
+                <span style="--i:7; --x:1; --y:1">
+                    <ion-icon name="radio-outline"></ion-icon>
+                </span>
+            </div>
+            <div class="close">
+                <ion-icon name="close-outline"></ion-icon>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let navigation = document.querySelector('.navigation');
+            let close = document.querySelector('.close');
+
+            navigation.onclick = function() {
+                navigation.classList.add('active');
+            };
+
+            close.onclick = function() {
+                navigation.classList.remove('active');
+            };
+        });
+    </script>
+</body>
+</html>

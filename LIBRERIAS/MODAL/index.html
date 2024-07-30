@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.global.js"></script>    
+    <script src="vue.js"></script>
+    <script src="sweetalert2@11.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilo para centrar el contenido */
+        .center-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Altura total de la pantalla */
+        }
+     
+        /* Estilo personalizado para el modal de éxito */
+        .swal2-success {
+            border: 2px solid #218838; /* Borde verde oscuro */
+        }
+
+        /* Estilo personalizado para el modal de error */
+        .swal2-error {
+            background-color: #dc3545 !important; /* Fondo rojo */
+            color: #ffffff !important; /* Texto blanco */
+            border: 2px solid #c82333; /* Borde rojo oscuro */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Sombra difusa */
+        }
+
+        /* Estilo para el texto del título */
+        .swal2-title {
+            font-size: 1.5rem; /* Tamaño de fuente más grande */
+        }
+
+        /* Estilo para el texto del contenido */
+        .swal2-content {
+            font-size: 1.2rem; /* Tamaño de fuente más grande */
+        }
+        .swal.fire{
+            border-radius: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="center-content">
+        <button @click="showSuccessAlert()" class="btn btn-primary">Mostrar Alerta de Éxito</button>
+        <button @click="showErrorAlert()" class="btn btn-danger">Mostrar Alerta de Error</button>
+        <p>{{ message }}</p> <!-- Mostrar el mensaje de Vue -->
+    </div>
+
+    <!-- Script para Vue y SweetAlert2 -->
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: '¡Hola desde Vue!'
+                };
+            },
+            methods: {
+                showSuccessAlert() {
+                    Swal.fire({
+                        title: '¡Éxito!',
+                        text: 'Registro exitoso',
+                        icon: 'success',
+                        showConfirmButton: false,
+                        timer: 1500,
+                        timerProgressBar: true,
+                        customClass: {
+                            popup: 'swal2-success'
+                        },
+                        onClose: () => {
+                            console.log('Alerta de éxito cerrada');
+                        }
+                    });
+                },
+                showErrorAlert() {
+                    Swal.fire({
+                        title: '¡Error!',
+                        text: 'Revise los campos',
+                        icon: 'error',
+                        showConfirmButton: false,
+                        timer: 1500,
+                        timerProgressBar: true,
+                        customClass: {
+                            popup: 'swal2-error'
+                        },
+                        onClose: () => {
+                            console.log('Alerta de error cerrada');
+                        }
+                    });
+                }
+            }
+        });
+
+        app.mount('#app');
+    </script>
+</body>
+
+</html>
